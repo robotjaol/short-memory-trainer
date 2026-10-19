@@ -49,7 +49,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
       {/* Main Viewport Container */}
       <div 
         className={`flex-1 flex flex-col min-w-0 transition-[padding] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isPinned ? 'md:pl-64' : 'md:pl-16'
+          isPinned ? 'md:pl-64' : 'md:pl-0'
         }`}
       >
         {/* Top Header */}
