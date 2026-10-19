@@ -1,0 +1,6 @@
+{
+  "name": "Cognitive Memory Lab",
+  "description": "Production-grade short-term memory, working memory, and attention training platform with scientific exercises and local analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

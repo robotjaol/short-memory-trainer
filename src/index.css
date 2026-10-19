@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --spotlight-fill: rgba(0, 0, 0, 0.04);
+    color-scheme: light;
+  }
+
+  :root.dark,
+  .dark {
+    --spotlight-fill: rgba(255, 255, 255, 0.06);
+    color-scheme: dark;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Tabular figures for telemetry & numbers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
