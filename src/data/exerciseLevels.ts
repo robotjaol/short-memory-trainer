@@ -59,21 +59,14 @@ export function generateCategoryLevels(category: CognitiveCategory): LevelChalle
       }
 
       case 'working-memory': {
-        const isRunning = i % 2 === 0 && i > 30;
-        exerciseId = isRunning ? 'running-memory' : 'n-back';
+        exerciseId = 'running-memory';
         categoryLabel = 'Working Memory';
-        const nValue = i <= 25 ? 1 : i <= 70 ? 2 : 3;
-        const streamSpeed = Math.max(900, 2200 - i * 12);
-        if (isRunning) {
-          title = `Running Memory Stream #${i}: Last ${Math.min(7, 3 + Math.floor(i / 20))} Items`;
-          specs = `Recall Last ${Math.min(7, 3 + Math.floor(i / 20))} • Dynamic Stream Length`;
-          targetMetric = `Target Buffer Recall: ${Math.min(95, 75 + Math.floor(i / 5))}%`;
-        } else {
-          title = `N-Back Challenge #${i}: ${nValue}-Back Visual Load`;
-          specs = `${nValue}-Back Mode • Symbol Speed: ${streamSpeed}ms • Continuous Updating`;
-          targetMetric = `Sensitivity d' > ${(1.5 + (i / 50)).toFixed(1)}`;
-        }
-        parameters = { nValue, streamSpeed, isRunning, level: i };
+        const targetItems = Math.min(8, 3 + Math.floor(i / 18));
+        const streamSpeed = Math.max(700, 2000 - i * 12);
+        title = `Running Memory Stream #${i}: Last ${targetItems} Digits`;
+        specs = `Recall Last ${targetItems} Items • Stream Speed: ${streamSpeed}ms • Dynamic Buffer`;
+        targetMetric = `Target Buffer Recall: ${Math.min(96, 75 + Math.floor(i / 5))}%`;
+        parameters = { targetItems, streamSpeed, level: i };
         break;
       }
 
@@ -137,6 +130,24 @@ export function generateCategoryLevels(category: CognitiveCategory): LevelChalle
         parameters = { streamIntervalMs, totalItems, targetRate, level: i };
         break;
       }
+
+      case 'numerical': {
+        exerciseId = 'psiko-math';
+        categoryLabel = 'Numerical Reasoning';
+        const qCount = i <= 25 ? 12 : i <= 70 ? 16 : 20;
+        const topic = i % 4 === 0 
+          ? 'Data Interpretation & Graphs' 
+          : i % 4 === 1 
+          ? 'Number Sequences & Progression' 
+          : i % 4 === 2 
+          ? 'Percentages, Ratios & Rates' 
+          : 'Abstract Matrix & Logic Puzzles';
+        title = `Psiko Math Drill #${i}: ${topic}`;
+        specs = `${qCount} Assessment Items • ${tier} Tier • Timed Multiple Choice`;
+        targetMetric = `Pass Accuracy: ≥${Math.min(95, 70 + Math.floor(i / 4))}%`;
+        parameters = { questionCount: qCount, tier, level: i };
+        break;
+      }
     }
 
     levels.push({
@@ -157,7 +168,7 @@ export function generateCategoryLevels(category: CognitiveCategory): LevelChalle
   return levels;
 }
 
-// Generate the complete master database of 735 levels (105 per category)
+// Generate the complete master database of 840 levels (105 per category across 8 categories)
 export const MASTER_LEVELS: Record<CognitiveCategory, LevelChallenge[]> = {
   'digit': generateCategoryLevels('digit'),
   'sequence': generateCategoryLevels('sequence'),
@@ -166,9 +177,10 @@ export const MASTER_LEVELS: Record<CognitiveCategory, LevelChallenge[]> = {
   'visual': generateCategoryLevels('visual'),
   'verbal': generateCategoryLevels('verbal'),
   'attention': generateCategoryLevels('attention'),
+  'numerical': generateCategoryLevels('numerical'),
 };
 
-// Flattened list of all 735 levels
+// Flattened list of all 840 levels
 export const ALL_LEVEL_CHALLENGES: LevelChallenge[] = [
   ...MASTER_LEVELS['digit'],
   ...MASTER_LEVELS['sequence'],
@@ -177,6 +189,7 @@ export const ALL_LEVEL_CHALLENGES: LevelChallenge[] = [
   ...MASTER_LEVELS['visual'],
   ...MASTER_LEVELS['verbal'],
   ...MASTER_LEVELS['attention'],
+  ...MASTER_LEVELS['numerical'],
 ];
 
 export function getLevelChallengeById(id: string): LevelChallenge | undefined {

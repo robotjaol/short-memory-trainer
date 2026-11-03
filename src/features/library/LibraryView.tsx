@@ -42,7 +42,8 @@ export const LibraryView: React.FC<LibraryViewProps> = ({
   const itemsPerPage = 24;
 
   const categories: { id: string; label: string; count: number }[] = [
-    { id: 'all', label: 'All Categories', count: 735 },
+    { id: 'all', label: 'All Categories', count: 840 },
+    { id: 'numerical', label: 'Psiko Math & Logic', count: 105 },
     { id: 'digit', label: 'Digit Memory', count: 105 },
     { id: 'sequence', label: 'Sequence', count: 105 },
     { id: 'working-memory', label: 'Working Memory', count: 105 },

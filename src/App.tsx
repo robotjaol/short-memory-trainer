@@ -22,7 +22,7 @@ import { LoadingScreen } from './components/ui/LoadingScreen';
 import { ExerciseContainer } from './features/exercises/ExerciseContainer';
 import { DigitSpanExercise } from './features/exercises/components/DigitSpanExercise';
 import { SequenceMemoryExercise } from './features/exercises/components/SequenceMemoryExercise';
-import { NBackExercise } from './features/exercises/components/NBackExercise';
+import { PsikoMathExercise } from './features/exercises/components/PsikoMathExercise';
 import { VisualMatrixExercise } from './features/exercises/components/VisualMatrixExercise';
 import { WordRecallExercise } from './features/exercises/components/WordRecallExercise';
 import { PairedAssociateExercise } from './features/exercises/components/PairedAssociateExercise';
@@ -202,9 +202,9 @@ export default function App() {
                     onFinish={handleExerciseFinished}
                   />
                 );
-              case 'n-back':
+              case 'psiko-math':
                 return (
-                  <NBackExercise
+                  <PsikoMathExercise
                     difficulty={difficulty}
                     soundEnabled={soundEnabled}
                     soundVolume={soundVolume}

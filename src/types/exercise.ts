@@ -5,7 +5,8 @@ export type CognitiveCategory =
   | 'visual'
   | 'spatial'
   | 'working-memory'
-  | 'attention';
+  | 'attention'
+  | 'numerical';
 
 export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced' | 'adaptive';
 

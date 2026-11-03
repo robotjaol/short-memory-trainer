@@ -44,26 +44,26 @@ export const EXERCISE_CATALOG: ExerciseDefinition[] = [
     scoringDescription: 'Based on the maximum span length achieved without interruption.'
   },
   {
-    id: 'n-back',
-    name: 'N-Back Working Memory',
-    category: 'working-memory',
-    categoryLabel: 'Working Memory',
-    description: 'Continuously monitor a stream of visual symbols and signal whenever the current symbol matches the item from N steps ago.',
-    cognitiveSkill: 'Executive Updating & Working Memory Capacity',
-    estimatedDuration: '3 - 5 min',
-    difficultyLevels: ['beginner', 'intermediate', 'advanced'],
+    id: 'psiko-math',
+    name: 'Psiko Math',
+    category: 'numerical',
+    categoryLabel: 'Numerical Reasoning',
+    description: 'Psychometric numerical reasoning, sequence logic, percentage calculations, abstract matrix patterns, and interactive data interpretation.',
+    cognitiveSkill: 'Numerical Aptitude, Abstract Reasoning & Data Interpretation',
+    estimatedDuration: '5 - 10 min',
+    difficultyLevels: ['beginner', 'intermediate', 'advanced', 'adaptive'],
     instructions: [
-      'Symbols will flash rapidly in the center display.',
-      'In 1-Back: respond if the symbol matches the immediate previous symbol.',
-      'In 2-Back: respond if the symbol matches the one shown 2 steps earlier.',
-      'In 3-Back: respond if the symbol matches the one shown 3 steps earlier.',
-      'Use the Match button or Spacebar to confirm matches.'
+      'Read each problem statement, numerical sequence, chart, or visual matrix pattern carefully.',
+      'Select the single correct answer from the four available choices (A, B, C, D).',
+      'Use the question palette to jump between questions or flag items for review.',
+      'Submit the assessment to review your score, percentile accuracy, and step-by-step mathematical explanations.'
     ],
     tips: [
-      'Maintain a mental sliding buffer of the most recent N items.',
-      'Constantly discard the oldest item while absorbing the newest.'
+      'In sequences, calculate consecutive differences, ratios, or second-order increments.',
+      'For data charts and tables, verify unit dimensions and axis metrics before computing.',
+      'Use keyboard shortcuts [A], [B], [C], [D] or [1], [2], [3], [4] for rapid answering.'
     ],
-    scoringDescription: 'Calculates signal detection metrics: hits, misses, false alarms, and d-prime sensitivity.'
+    scoringDescription: 'Evaluates percentage accuracy, total points, item response times, and full question review.'
   },
   {
     id: 'visual-matrix',
